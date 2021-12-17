@@ -3,9 +3,17 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const methodOverride = require('method-override');
+const session = require('express-session');
+const passport = require('passport');
+
+require('dotenv').config();
+require('./config/database');
+require('./config/passport');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const tickersRouter = require('./routes/tickers');
 
 var app = express();
 
@@ -17,10 +25,28 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(methodOverride('_method'));
+// Sets up express sessions to start tracking session info
+app.use(session({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: true
+}));
+// Sets up passport to add req.user to each incoming request
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(function (req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
+
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Mounting routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/tickers', tickersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
