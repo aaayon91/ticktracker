@@ -2,6 +2,7 @@
 
 <% if (user) { %>
     <br><br><h2>TRANSACTIONS</h2>
+    <h3>ENTER A NEW TRANSACTION:</h3>
     <form id="add-transaction-form" method="POST"
       action="/tickers/<%= ticker._id %>/transactions">
       <label>PRICE:</label>
@@ -14,7 +15,37 @@
         <option value="2">SELL</option>
       </select>
       <input type="submit" value="ADD TRANSACTION">
-    </form>
+    </form><br><br>
   <% } %>
+
+  <h3>TRANSACTION HISTORY:</h3>
+<% if (ticker.transactions.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>PRICE</th>
+        <th>QTY</th>
+        <th>ORDER</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% let total = 0 %>
+      <% ticker.transactions.forEach(function(t) { %>
+        <% if (t.order === "1") { %>
+          <% total = total + (t.price * t.shares) %>
+        <% }else { %>
+          <% total = total - (t.price * t.shares) %>
+        <% } %>
+        <tr>
+          <td><%= t.price %></td>
+          <td><%= t.shares %></td>
+          <td><%= t.order %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table><br>
+  <h3><%= total %></h3>
+
+<% } %>
 
 <%- include('../partials/footer') %>

@@ -2,9 +2,9 @@
 
 <form id="new-form" action="/tickers" method="POST">
     <label>TICKER:</label>
-    <input type="text" name="symbol">
+    <input type="text" oninput="this.value = this.value.toUpperCase()" name="symbol">
     <label>COMPANY NAME:</label>
-    <input type="text" name="company">
+    <input type="text" oninput="this.value = this.value.toUpperCase()" name="company">
     <!-- <label>PRICE</label>
     <input type="text" name="xxx"> -->
     <input type="submit" value="ADD TICKER">
