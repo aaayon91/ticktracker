@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+
+<form id="new-form" action="/tickers" method="POST">
+    <label>TICKER:</label>
+    <input type="text" name="symbol">
+    <label>COMPANY NAME:</label>
+    <input type="text" name="company">
+    <!-- <label>PRICE</label>
+    <input type="text" name="xxx"> -->
+    <input type="submit" value="ADD TICKER">
+</form>
+  
+<%- include('../partials/footer') %>
