@@ -8,5 +8,6 @@ router.get('/', isLoggedIn, tickersCtrl.index);
 router.get('/new', isLoggedIn, tickersCtrl.new);
 router.post('/', isLoggedIn, tickersCtrl.create);
 router.get('/:id', isLoggedIn, tickersCtrl.show);
+router.delete('/tickers/:id', isLoggedIn, tickersCtrl.deleteTicker);
 
 module.exports = router;

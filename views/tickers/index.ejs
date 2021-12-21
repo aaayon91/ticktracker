@@ -6,6 +6,7 @@
         <th>TICKER</th>
         <th>COMPANY</th>
         <th>TRANSACTIONS</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -14,28 +15,15 @@
           <td><%= t.symbol %></td>
           <td><%= t.company %></td>
           <td><a href="/tickers/<%= t._id %>">DETAILS</a></td>
+          <td>
+              <form action="/tickers/<%= t._id %>?_method=DELETE" method="POST">
+                <button type="submit">DELETE</button>
+              </form>
+          </td>
+      <% }); %>
         </tr>
-        <% }); %>
       </tbody>
     </table>
   
 <%- include('../partials/footer') %>
 
-<!-- <table>
-    <thead>
-      <tr>
-        <th>TICKER</th>
-        <th>COMPANY</th>
-        <th>TRANSACTIONS</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% tickers.forEach(function(t) { %>
-        <tr>
-          <td><%= t.symbol %></td>
-          <td><%= t.company %></td>
-          <td><a href="/tickers/<%= t._id %>">DETAILS</a></td>
-        </tr>
-        <% }); %>
-      </tbody>
-    </table> -->

@@ -1,3 +1,4 @@
+const res = require('express/lib/response');
 const Ticker = require('../models/ticker');
 // const main = require('../public/javascripts/main');
 
@@ -7,11 +8,11 @@ module.exports = {
     new: newTicker,
     create,
     index,
-    show
+    show,
+    deleteTicker
 }
 
 function newTicker(req, res) {
-    hover();
     res.render('tickers/new', {title: 'ADD TICKER'})
 }
 
@@ -44,6 +45,28 @@ function show(req, res) {
     })
 }
 
-function hover() {
-    console.log('hi')
+function deleteTicker(req, res, next) {
+    // console.log('HELLO');
+    // Ticker.findOne({'t._id': req.params.id}).then(function(t) {
+    Ticker.findOne(req.params.id).then(function(t) {
+        console.log(t);
+        // const ticker = ticker.id(req.params.id);
+        if (!ticker.user.equals(req.user._id)) return res.redirect('/tickers');
+        ticker.remove();
+        Ticker.save().then(function() {
+            res.redirect('/tickers');
+        }).catch(function(err) {
+            return next(err);
+        });
+    });
 }
+
+// function deleteTicker(req, res) {
+//     console.log("Hello")
+//     // Ticker.findOne()
+//     res.redirect('/tickers');
+// }
+
+// function hover() {
+//     console.log('hi')
+// }
