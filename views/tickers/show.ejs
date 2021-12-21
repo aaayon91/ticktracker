@@ -26,6 +26,7 @@
         <th>PRICE</th>
         <th>QTY</th>
         <th>ORDER</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -40,6 +41,12 @@
           <td><%= t.price %></td>
           <td><%= t.shares %></td>
           <td><%= t.order %></td>
+          <td>
+            <a href="/transactions/<%= t._id %>/edit" >EDIT</a>
+            <!-- <form action="/transactions/<%= t._id %>?_method=PUT" method="POST">
+              <button type="submit">EDIT</button>
+            </form> -->
+        </td>
         </tr>
       <% }) %>
     </tbody>

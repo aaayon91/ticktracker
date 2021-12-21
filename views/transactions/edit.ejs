@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+
+<br><br><h2>EDIT TRANSACTION</h2>
+<form id="edit-transaction-form" action="/transactions/<%= req.params.id %>?_method=PUT" method="POST">
+  <label>PRICE:</label>
+  <input type="text" name="price">
+  <label>QTY:</label>
+  <input type="text" name="shares">
+  <label>ORDER:</label>
+  <select name="order">
+    <option value="1" selected>BUY</option>
+    <option value="2">SELL</option>
+  </select>
+  <input type="submit" value="ADD TRANSACTION">
+</form>
+
+<%- include('../partials/footer') %>
