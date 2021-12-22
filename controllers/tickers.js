@@ -89,10 +89,11 @@ function deleteTicker(req, res, next) {
     Ticker.findById(req.params.id).then(function (ticker) {
         // alert('hi');
         ticker.remove();
+        res.redirect('/tickers');
     })
         // if (!ticker.user.equals(req.user._id)) return res.redirect('/tickers');
         // Ticker.save().then(function() {
-            res.redirect('/tickers');
+            // res.redirect('/tickers');
         // }).catch(function(err) {
         //     return next(err);
         // });
