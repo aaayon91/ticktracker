@@ -30,7 +30,7 @@ nav > img {
 }
 
 body > main {
-  grid-area: main;
+  /* grid-area: main; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -93,3 +93,7 @@ a {
 .login img {
   height: 30px;
 }
+
+/* table {
+  width: 80%;
+} */

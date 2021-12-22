@@ -15,7 +15,9 @@ const transactionSchema = new Schema({
         default: "buy"
     },
     date: Date
-})
+}, {
+    timestamps: true
+});
 
 const tickerSchema = new Schema({
     symbol: {
@@ -24,6 +26,8 @@ const tickerSchema = new Schema({
     },
     company: String,
     transactions: [transactionSchema]
-})
+}, {
+    timestamps: true
+});
 
 module.exports = mongoose.model('Ticker', tickerSchema)

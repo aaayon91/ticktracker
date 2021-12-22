@@ -15,7 +15,7 @@ passport.use(
         // a user has logged in with OAuth...
             User.findOne({ googleId: profile.id }).then(async function(user) {
                 if (user) return cb(null, user);
-                // We have a new user via OAuth!
+                // We have a new user via OAuth
                 try {
                 user = await User.create({
                     name: profile.displayName,

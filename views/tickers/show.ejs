@@ -1,7 +1,8 @@
 <%- include('../partials/header') %>
 
+
 <% if (user) { %>
-    <br><br><h2>TRANSACTIONS</h2>
+    <h2>TRANSACTIONS</h2>
     <h3>ENTER A NEW TRANSACTION:</h3>
     <form id="add-transaction-form" method="POST"
       action="/tickers/<%= ticker._id %>/transactions">
@@ -11,8 +12,8 @@
       <input type="text" name="shares">
       <label>ORDER:</label>
       <select name="order">
-        <option value="1" selected>BUY</option>
-        <option value="2">SELL</option>
+        <option value="BUY" selected>BUY</option>
+        <option value="SELL">SELL</option>
       </select>
       <input type="submit" value="ADD TRANSACTION">
     </form><br><br>
@@ -32,7 +33,7 @@
     <tbody>
       <% let total = 0 %>
       <% ticker.transactions.forEach(function(t) { %>
-        <% if (t.order === "1") { %>
+        <% if (t.order === "BUY") { %>
           <% total = total + (t.price * t.shares) %>
         <% }else { %>
           <% total = total - (t.price * t.shares) %>
@@ -51,7 +52,7 @@
       <% }) %>
     </tbody>
   </table><br>
-  <h3><%= total %></h3>
+  <h3>TOTAL INVESTMENT: <%= total %></h3>
 
 <% } %>
 
