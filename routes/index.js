@@ -19,8 +19,6 @@ router.get('/oauth2callback', passport.authenticate(
   {
     successRedirect : '/tickers',
     failureRedirect : '/tickers'
-    // successRedirect : '/movies',
-    // failureRedirect : '/movies'
   }
 ));
 
@@ -28,7 +26,6 @@ router.get('/oauth2callback', passport.authenticate(
 router.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
-  // res.redirect('/movies');
 });
 
 module.exports = router;

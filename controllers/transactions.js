@@ -18,12 +18,6 @@ function create(req, res) {
 function edit(req, res) {
     Ticker.findOne({'transactions._id': req.params.id}).then(function(ticker) {
         const transaction = ticker.transactions.id(req.params.id);
-        console.log(transaction);
-    // ticker.save().then(function() {
-        // res.redirect(`/tickers/${ticker._id}`);
-    // }).catch(function(err) {
-        // return next(err);
-    // });
         res.render(`transactions/edit`, {
         title: 'EDIT TRANSACTION',
         transaction

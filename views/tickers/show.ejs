@@ -44,15 +44,12 @@
           <td><%= t.order %></td>
           <td>
             <a href="/transactions/<%= t._id %>/edit" >EDIT</a>
-            <!-- <form action="/transactions/<%= t._id %>?_method=PUT" method="POST">
-              <button type="submit">EDIT</button>
-            </form> -->
         </td>
         </tr>
       <% }) %>
     </tbody>
   </table><br>
-  <h3>TOTAL INVESTMENT: <%= total %></h3>
+  <h3>TOTAL INVESTED: <%= total %></h3>
 
 <% } %>
 

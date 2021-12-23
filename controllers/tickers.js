@@ -1,4 +1,3 @@
-// const res = require('express/lib/response');
 const Ticker = require('../models/ticker');
 
 module.exports = {
@@ -50,18 +49,8 @@ function show(req, res) {
 }
 
 function deleteTicker(req, res, next) {
-    console.log('HELLO');
-    console.log(req.params.id);
     Ticker.findById(req.params.id).then(function (ticker) {
-        // alert('hi');
         ticker.remove();
         res.redirect('/tickers');
     })
-        // if (!ticker.user.equals(req.user._id)) return res.redirect('/tickers');
-        // Ticker.save().then(function() {
-            // res.redirect('/tickers');
-        // }).catch(function(err) {
-        //     return next(err);
-        // });
-
 }

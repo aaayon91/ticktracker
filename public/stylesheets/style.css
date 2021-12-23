@@ -5,42 +5,43 @@
 body {
   margin: 0;
   height: 100vh;
-  /* display: grid;
-  grid-template-rows: 50px 1fr;
-  grid-template-areas: 
-    "nav"
-    "main" */
+  background-image: url('/../images/background.jpeg');
+  color: white;
   font-family: 'Orbitron', sans-serif;
   font-weight: bold;
 }
 
 body > nav {
+  background-color: black;
+  opacity: .85;
   grid-area: nav;
-  /* background-color: #B8C0C2; */
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding: 0 20px 0 30px;
 }
 
-nav > img {
-  width: 34px;
-  object-fit: contain;
-  margin-right: auto;
-}
-
 body > main {
-  /* grid-area: main; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background-color: #E8ECEB; */
   padding: 20px;
   overflow-y: scroll;
 }
 
 body > main h1:first-child {
-  margin-bottom: 50px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: black;
+  opacity: .85;
+  border-radius: 15px;
+}
+
+h2, h3 , form {
+  padding: 10px;
+  background-color: black;
+  opacity: .85;
+  border-radius: 15px;
 }
 
 nav > a {
@@ -52,32 +53,31 @@ nav > a {
 
 nav > a:hover:not(.active) {
   color: white;
-  background-color: #424748;
+  background-color: #00B7FF;
 }
 
 nav > a.active {
-  color: black;
+  color: white;
   cursor: default;
 }
 
-/* body {
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 50px;
-  font-family: 'Orbitron', sans-serif;
-  font-weight: bold;
+table {
+  background-color: black;
+  opacity: .85;
+  border-radius: 20px;
 }
 
-div {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-} */
+table thead th {
+  padding: 30px 20px 10px 20px;
+  font-size: 25px;
+  border-bottom: 4px solid white;
+}
+
+table td {
+  padding: 15px;
+  border-bottom: 1px solid white;
+  text-align: center;
+}
 
 a {
   color: #00B7FF;
@@ -93,7 +93,3 @@ a {
 .login img {
   height: 30px;
 }
-
-/* table {
-  width: 80%;
-} */
